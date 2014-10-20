@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ListRowViewController" customModule="Travis" customModuleProvider="target">
+            <connections>
+                <outlet property="statusIcon" destination="e6s-0f-pOA" id="O2A-wE-tKw"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="e6s-0f-pOA" userLabel="Status" customClass="StatusIcon" customModule="Travis" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="69" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="0VS-a2-qG3"/>
+                        <constraint firstAttribute="width" constant="16" id="65B-8T-ON8"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OyQ-wO-O0X">
+                    <rect key="frame" x="287" y="69" width="35" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="2544" id="95v-3E-xlS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.representedObject.buildNumber" id="BZu-ah-PAj"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-FN-O2Q">
+                    <rect key="frame" x="22" y="68" width="261" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="DefactoSoftware/LearningSpaces" id="GA3-GY-zTK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.representedObject.slug" id="gTq-b1-wZN"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AFN-mA-BMl">
+                    <rect key="frame" x="-2" y="40" width="324" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Duration: 3 min 59 seconds" id="7sn-o7-3ax">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.representedObject.duration" id="g1p-N4-jpf"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-oZ-zR9">
+                    <rect key="frame" x="-2" y="12" width="324" height="16"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Finished: about 1 hour ago" id="QVa-pP-swK">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.representedObject.finishedAt" id="cR6-yx-nB2"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="AFN-mA-BMl" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="7Vg-ru-wXX"/>
+                <constraint firstAttribute="bottom" secondItem="yrB-oZ-zR9" secondAttribute="bottom" constant="12" id="8R3-ag-Kbd"/>
+                <constraint firstItem="yrB-oZ-zR9" firstAttribute="top" secondItem="AFN-mA-BMl" secondAttribute="bottom" constant="12" id="8oP-GA-50E"/>
+                <constraint firstItem="AFN-mA-BMl" firstAttribute="top" secondItem="HSD-FN-O2Q" secondAttribute="bottom" constant="12" id="EXB-cS-hod"/>
+                <constraint firstAttribute="trailing" secondItem="OyQ-wO-O0X" secondAttribute="trailing" id="GdU-Vl-d3D"/>
+                <constraint firstItem="HSD-FN-O2Q" firstAttribute="centerY" secondItem="e6s-0f-pOA" secondAttribute="centerY" constant="0.5" id="Grs-Va-9M1"/>
+                <constraint firstItem="AFN-mA-BMl" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="HYs-7F-oxR"/>
+                <constraint firstItem="yrB-oZ-zR9" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="IDK-4V-lsl"/>
+                <constraint firstItem="yrB-oZ-zR9" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="RJ5-Yd-PLQ"/>
+                <constraint firstItem="HSD-FN-O2Q" firstAttribute="leading" secondItem="e6s-0f-pOA" secondAttribute="trailing" constant="8" id="SQr-K5-5yR"/>
+                <constraint firstItem="OyQ-wO-O0X" firstAttribute="leading" secondItem="HSD-FN-O2Q" secondAttribute="trailing" constant="8" id="YLs-eF-FYF"/>
+                <constraint firstItem="e6s-0f-pOA" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ZQo-LF-i8r"/>
+                <constraint firstItem="HSD-FN-O2Q" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="12" id="vsP-fQ-Rov"/>
+                <constraint firstItem="HSD-FN-O2Q" firstAttribute="centerY" secondItem="OyQ-wO-O0X" secondAttribute="centerY" constant="1" id="zvm-Ye-8uM"/>
+            </constraints>
+            <point key="canvasLocation" x="380" y="379.5"/>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="ulH-HT-8j9"/>
+    </objects>
+</document>
