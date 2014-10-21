@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ListRowViewController" customModule="Travis" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ListRowViewController" customModule="Today" customModuleProvider="target">
             <connections>
                 <outlet property="statusIcon" destination="e6s-0f-pOA" id="O2A-wE-tKw"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -15,7 +15,7 @@
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="e6s-0f-pOA" userLabel="Status" customClass="StatusIcon" customModule="Travis" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="e6s-0f-pOA" userLabel="Status" customClass="StatusIcon" customModule="Today" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="69" width="16" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="0VS-a2-qG3"/>
@@ -52,7 +52,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="self.representedObject.duration" id="g1p-N4-jpf"/>
+                        <binding destination="-2" name="value" keyPath="self.representedObject.durationLabel" id="PYv-EU-wG1"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-oZ-zR9">

@@ -11,11 +11,11 @@ import Foundation
 class Repo: NSObject {
 	var slug: String?
 	var buildNumber: String?
-	var duration: String?
+	var duration: Int?
 	var status: BuildStatus?
 	var finishedAt: String?
 
-	init(slug: String, buildNumber: String, duration: String, status: String, finishedAt: String) {
+	init(slug: String, buildNumber: String, duration: Int, status: String, finishedAt: String) {
 		super.init()
 		self.slug = slug
 		self.buildNumber = buildNumber

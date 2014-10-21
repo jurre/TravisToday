@@ -8,29 +8,26 @@
 
 import Cocoa
 import NotificationCenter
+import TravisKit
+
+extension Repo {
+	var durationLabel: String {
+		get {
+			let seconds = self.duration! % 60
+			let minutes = (self.duration! - seconds) / 60
+			return "Duration: \(minutes) min \(seconds) sec"
+		}
+	}
+}
 
 class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate {
 
+    // MARK: - NSViewController
+
     @IBOutlet var listViewController: NCWidgetListViewController!
 
-    // MARK: - NSViewController
-	let repos: NSArray = [
-		Repo(slug: "DefactoSoftware/Hours",
-			buildNumber: "2345",
-			duration: "Duration: 1 min 6 sec",
-			status: "passed",
-			finishedAt: "Finished: 4 minutes ago"),
-		Repo(slug: "DefactoSoftware/LearningSpaces",
-			buildNumber: "2231",
-			duration: "Duration: 43 sec",
-			status: "running",
-			finishedAt: "Finished: -"),
-		Repo(slug: "DefactoSoftware/Conversations",
-			buildNumber: "1372",
-			duration: "Duration: 1 min 23 sec",
-			status: "failed",
-			finishedAt: "Finished: about 1 hour ago")
-	]
+	var repos: NSMutableArray = []
+	let slugs = ["DefactoSoftware/Hours", "travis-ci/travis-core", "rails/rails"]
 
 	override var nibName: String? {
 		return "TodayViewController"
@@ -38,10 +35,10 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		// Set up the widget list view controller.
 		// The contents property should contain an object for each row in the list.
-		self.listViewController.contents = repos
+
 	}
 	
 	
@@ -53,7 +50,21 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
 		// refreshed. Pass NCUpdateResultNoData to indicate that nothing has changed
 		// or NCUpdateResultNewData to indicate that there is new data since the
 		// last invocation of this method.
-		completionHandler(.NoData)
+		self.repos.removeAllObjects()
+		for slug in slugs {
+			RepoService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
+				if (success) {
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						self.repos.addObject(repo!)
+						self.listViewController.contents = self.repos
+						completionHandler(.NewData)
+					})
+				} else {
+					println("Error fetching " + slug)
+						completionHandler(.NoData)
+				}
+			})
+		}
 	}
 	
 	func widgetMarginInsetsForProposedMarginInsets(var defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets {
