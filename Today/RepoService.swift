@@ -20,7 +20,8 @@ extension Repo {
 						if let duration = repo["last_build_duration"] as? Int {
 							if let status = repo["last_build_state"] as? String {
 								if let finishedAt = repo["last_build_finished_at"] as AnyObject? as? String {
-									return Repo(slug: slug, buildNumber: buildNumber, duration: duration, status: status, finishedAt: finishedAt)
+									let date = self.formattedDateString(finishedAt)
+									return Repo(slug: slug, buildNumber: buildNumber, duration: duration, status: status, finishedAt: date)
 								}
 							}
 						}
@@ -30,6 +31,11 @@ extension Repo {
 		}
 
 		return .None
+	}
+
+	private class func formattedDateString(dateString: String) -> String {
+		let date = ISO8601DateParser.sharedInstance.parse(dateString)
+		return DateFormatter.sharedInstance.format(date)
 	}
 }
 
@@ -52,5 +58,54 @@ class RepoService {
 			}
 		})
 		task.resume()
+	}
+}
+
+class DateFormatter {
+	private var formatter: NSDateFormatter
+
+	init() {
+		self.formatter = NSDateFormatter()
+		self.formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+		self.formatter.timeStyle = NSDateFormatterStyle.MediumStyle
+	}
+
+	func format(date: NSDate) -> String {
+		return self.formatter.stringFromDate(date)
+	}
+
+	class var sharedInstance: DateFormatter {
+		struct Static {
+			static var onceToken : dispatch_once_t = 0
+			static var instance : DateFormatter? = nil
+		}
+		dispatch_once(&Static.onceToken) {
+			Static.instance = DateFormatter()
+		}
+		return Static.instance!
+	}
+}
+
+class ISO8601DateParser {
+	private var formatter: NSDateFormatter
+
+	init() {
+		self.formatter = NSDateFormatter()
+		self.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+	}
+
+	func parse(dateString: String) -> NSDate {
+		return self.formatter.dateFromString(dateString)!
+	}
+
+	class var sharedInstance: ISO8601DateParser {
+		struct Static {
+			static var onceToken : dispatch_once_t = 0
+			static var instance : ISO8601DateParser? = nil
+		}
+		dispatch_once(&Static.onceToken) {
+			Static.instance = ISO8601DateParser()
+		}
+		return Static.instance!
 	}
 }
