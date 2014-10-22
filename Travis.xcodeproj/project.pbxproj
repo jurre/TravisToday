@@ -15,12 +15,12 @@
 		0715A92919F58A8400B5D318 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0715A8FF19F587B300B5D318 /* NotificationCenter.framework */; };
 		0715A93019F58A8400B5D318 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0715A92E19F58A8400B5D318 /* InfoPlist.strings */; };
 		0715A93719F58A8400B5D318 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0715A92819F58A8400B5D318 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0715A94619F58AA700B5D318 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A93E19F58AA700B5D318 /* TodayViewController.swift */; };
+		0715A94619F58AA700B5D318 /* TravisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A93E19F58AA700B5D318 /* TravisViewController.swift */; };
 		0715A94719F58AA700B5D318 /* ListRowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A93F19F58AA700B5D318 /* ListRowViewController.swift */; };
 		0715A94819F58AA700B5D318 /* StatusIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A94019F58AA700B5D318 /* StatusIcon.swift */; };
 		0715A94919F58AA700B5D318 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A94119F58AA700B5D318 /* Repo.swift */; };
 		0715A94A19F58AA700B5D318 /* BuildStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715A94219F58AA700B5D318 /* BuildStatus.swift */; };
-		0715A94B19F58AA700B5D318 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0715A94319F58AA700B5D318 /* TodayViewController.xib */; };
+		0715A94B19F58AA700B5D318 /* TravisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0715A94319F58AA700B5D318 /* TravisViewController.xib */; };
 		0715A94C19F58AA700B5D318 /* ListRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0715A94419F58AA700B5D318 /* ListRowViewController.xib */; };
 		0724C1B019F7134D00A0C3D1 /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724C1AF19F7134D00A0C3D1 /* RepoService.swift */; };
 /* End PBXBuildFile section */
@@ -81,12 +81,12 @@
 		0715A92C19F58A8400B5D318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0715A92D19F58A8400B5D318 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Today.entitlements; sourceTree = "<group>"; };
 		0715A92F19F58A8400B5D318 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0715A93E19F58AA700B5D318 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		0715A93E19F58AA700B5D318 /* TravisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravisViewController.swift; sourceTree = "<group>"; };
 		0715A93F19F58AA700B5D318 /* ListRowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowViewController.swift; sourceTree = "<group>"; };
 		0715A94019F58AA700B5D318 /* StatusIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusIcon.swift; sourceTree = "<group>"; };
 		0715A94119F58AA700B5D318 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		0715A94219F58AA700B5D318 /* BuildStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildStatus.swift; sourceTree = "<group>"; };
-		0715A94319F58AA700B5D318 /* TodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
+		0715A94319F58AA700B5D318 /* TravisViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravisViewController.xib; sourceTree = "<group>"; };
 		0715A94419F58AA700B5D318 /* ListRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListRowViewController.xib; sourceTree = "<group>"; };
 		0724C1AF19F7134D00A0C3D1 /* RepoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,7 +195,7 @@
 				0715A94019F58AA700B5D318 /* StatusIcon.swift */,
 				0724C1AF19F7134D00A0C3D1 /* RepoService.swift */,
 				0715A94419F58AA700B5D318 /* ListRowViewController.xib */,
-				0715A94319F58AA700B5D318 /* TodayViewController.xib */,
+				0715A94319F58AA700B5D318 /* TravisViewController.xib */,
 				0715A92B19F58A8400B5D318 /* Supporting Files */,
 			);
 			path = Today;
@@ -215,7 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				0715A93F19F58AA700B5D318 /* ListRowViewController.swift */,
-				0715A93E19F58AA700B5D318 /* TodayViewController.swift */,
+				0715A93E19F58AA700B5D318 /* TravisViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -357,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0715A94C19F58AA700B5D318 /* ListRowViewController.xib in Resources */,
-				0715A94B19F58AA700B5D318 /* TodayViewController.xib in Resources */,
+				0715A94B19F58AA700B5D318 /* TravisViewController.xib in Resources */,
 				0715A93019F58A8400B5D318 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0715A94819F58AA700B5D318 /* StatusIcon.swift in Sources */,
-				0715A94619F58AA700B5D318 /* TodayViewController.swift in Sources */,
+				0715A94619F58AA700B5D318 /* TravisViewController.swift in Sources */,
 				0715A94919F58AA700B5D318 /* Repo.swift in Sources */,
 				0715A94719F58AA700B5D318 /* ListRowViewController.swift in Sources */,
 				0715A94A19F58AA700B5D318 /* BuildStatus.swift in Sources */,

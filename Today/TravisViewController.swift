@@ -20,7 +20,7 @@ extension Repo {
 	}
 }
 
-class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate {
+class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate {
 
     // MARK: - NSViewController
 
@@ -30,7 +30,7 @@ class TodayViewController: NSViewController, NCWidgetProviding, NCWidgetListView
 	let slugs = ["DefactoSoftware/Hours", "travis-ci/travis-core", "rails/rails"]
 
 	override var nibName: String? {
-		return "TodayViewController"
+		return "TravisViewController"
 	}
 	
 	override func viewDidLoad() {
