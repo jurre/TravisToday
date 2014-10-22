@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+let PUBLIC_REPOS = [
+	"DefactoSoftware/Hours",
+	"travis-ci/travis-core",
+	"rails/rails"
+]
+
+let PRIVATE_REPOS = []
+
+let GITHUB_TOKEN = "YOUR GITHUB TOKEN"

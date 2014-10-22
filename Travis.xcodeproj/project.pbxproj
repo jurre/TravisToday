@@ -23,6 +23,7 @@
 		0715A94B19F58AA700B5D318 /* TravisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0715A94319F58AA700B5D318 /* TravisViewController.xib */; };
 		0715A94C19F58AA700B5D318 /* ListRowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0715A94419F58AA700B5D318 /* ListRowViewController.xib */; };
 		0724C1B019F7134D00A0C3D1 /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0724C1AF19F7134D00A0C3D1 /* RepoService.swift */; };
+		07AC0D0519F846B20064F949 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0419F846B20064F949 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		0715A94319F58AA700B5D318 /* TravisViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravisViewController.xib; sourceTree = "<group>"; };
 		0715A94419F58AA700B5D318 /* ListRowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListRowViewController.xib; sourceTree = "<group>"; };
 		0724C1AF19F7134D00A0C3D1 /* RepoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoService.swift; sourceTree = "<group>"; };
+		07AC0D0419F846B20064F949 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				0715A94419F58AA700B5D318 /* ListRowViewController.xib */,
 				0715A94319F58AA700B5D318 /* TravisViewController.xib */,
 				0715A92B19F58A8400B5D318 /* Supporting Files */,
+				07AC0D0419F846B20064F949 /* Config.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0715A94819F58AA700B5D318 /* StatusIcon.swift in Sources */,
 				0715A94619F58AA700B5D318 /* TravisViewController.swift in Sources */,
 				0715A94919F58AA700B5D318 /* Repo.swift in Sources */,
+				07AC0D0519F846B20064F949 /* Config.swift in Sources */,
 				0715A94719F58AA700B5D318 /* ListRowViewController.swift in Sources */,
 				0715A94A19F58AA700B5D318 /* BuildStatus.swift in Sources */,
 				0724C1B019F7134D00A0C3D1 /* RepoService.swift in Sources */,
