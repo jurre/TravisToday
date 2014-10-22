@@ -14,6 +14,19 @@ enum BuildStatus {
 	case Failed
 	case Unknown
 
+	var stringValue: String {
+		switch self {
+		case Running:
+			return "running"
+		case Passed:
+			return "passed"
+		case Failed:
+			return "failed"
+		default:
+			return "unknown"
+		}
+	}
+
 	static func fromString(status: String) -> BuildStatus {
 		switch status {
 		case "running":

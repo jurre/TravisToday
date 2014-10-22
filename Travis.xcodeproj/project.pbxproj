@@ -27,6 +27,7 @@
 		07AC0D0719F84A2E0064F949 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0619F84A2E0064F949 /* DateFormatter.swift */; };
 		07AC0D0919F84A760064F949 /* ISO8601DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0819F84A760064F949 /* ISO8601DateParser.swift */; };
 		07AC0D0C19F84B200064F949 /* RepoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0B19F84B200064F949 /* RepoParser.swift */; };
+		07AC0D0F19F859AA0064F949 /* RepoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0E19F859AA0064F949 /* RepoCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		07AC0D0619F84A2E0064F949 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		07AC0D0819F84A760064F949 /* ISO8601DateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601DateParser.swift; sourceTree = "<group>"; };
 		07AC0D0B19F84B200064F949 /* RepoParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoParser.swift; sourceTree = "<group>"; };
+		07AC0D0E19F859AA0064F949 /* RepoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				0715A96519F59DB900B5D318 /* ViewControllers */,
 				07AC0D0D19F84B5D0064F949 /* Networking */,
 				07AC0D0A19F84A9E0064F949 /* Util */,
+				07AC0D0E19F859AA0064F949 /* RepoCache.swift */,
 				0715A94019F58AA700B5D318 /* StatusIcon.swift */,
 				0715A94419F58AA700B5D318 /* ListRowViewController.xib */,
 				0715A94319F58AA700B5D318 /* TravisViewController.xib */,
@@ -423,6 +426,7 @@
 				0715A94A19F58AA700B5D318 /* BuildStatus.swift in Sources */,
 				07AC0D0719F84A2E0064F949 /* DateFormatter.swift in Sources */,
 				07AC0D0919F84A760064F949 /* ISO8601DateParser.swift in Sources */,
+				07AC0D0F19F859AA0064F949 /* RepoCache.swift in Sources */,
 				0724C1B019F7134D00A0C3D1 /* RepoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

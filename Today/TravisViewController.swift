@@ -37,25 +37,26 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 
 		// Set up the widget list view controller.
 		// The contents property should contain an object for each row in the list.
-
+		for slug in PUBLIC_REPOS {
+			if let repo = RepoCache().get(slug) {
+				self.repos.addObject(repo)
+			}
+			self.listViewController.contents = self.repos
+		}
 	}
 	
 	
 	// MARK: - NCWidgetProviding
 	
 	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-		// Refresh the widget's contents in preparation for a snapshot.
-		// Call the completion handler block after the widget's contents have been
-		// refreshed. Pass NCUpdateResultNoData to indicate that nothing has changed
-		// or NCUpdateResultNewData to indicate that there is new data since the
-		// last invocation of this method.
 		self.repos.removeAllObjects()
 		for slug in PUBLIC_REPOS {
 			RepoService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
 				if (success) {
+					RepoCache().set(repo!, forKey: slug)
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in
 						self.repos.addObject(repo!)
-						self.listViewController.contents = self.repos
+//						self.listViewController.contents = self.repos
 						completionHandler(.NewData)
 					})
 				} else {
