@@ -51,12 +51,11 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
 		self.repos.removeAllObjects()
 		for slug in PUBLIC_REPOS {
-			RepoService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
+			RepoService.sharedService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
 				if (success) {
 					RepoCache().set(repo!, forKey: slug)
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in
 						self.repos.addObject(repo!)
-//						self.listViewController.contents = self.repos
 						completionHandler(.NewData)
 					})
 				} else {
