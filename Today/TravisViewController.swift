@@ -27,7 +27,6 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
     @IBOutlet var listViewController: NCWidgetListViewController!
 
 	var repos: NSMutableArray = []
-	let slugs = ["DefactoSoftware/Hours", "travis-ci/travis-core", "rails/rails"]
 
 	override var nibName: String? {
 		return "TravisViewController"
@@ -51,7 +50,7 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 		// or NCUpdateResultNewData to indicate that there is new data since the
 		// last invocation of this method.
 		self.repos.removeAllObjects()
-		for slug in slugs {
+		for slug in PUBLIC_REPOS {
 			RepoService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
 				if (success) {
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in
