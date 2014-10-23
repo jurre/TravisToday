@@ -21,20 +21,20 @@ extension Repo {
 }
 
 class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListViewDelegate {
-
-    // MARK: - NSViewController
-
-    @IBOutlet var listViewController: NCWidgetListViewController!
-
+	
+	// MARK: - NSViewController
+	
+	@IBOutlet var listViewController: NCWidgetListViewController!
+	
 	var repos: NSMutableArray = []
-
+	
 	override var nibName: String? {
 		return "TravisViewController"
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		// Set up the widget list view controller.
 		for repo in REPOS {
 			if let cachedRepo = RepoCache().get(repo.slug) {
@@ -50,7 +50,7 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
 		fetchRepos(completionHandler)
 	}
-
+	
 	
 	func widgetMarginInsetsForProposedMarginInsets(var defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets {
 		// Override the left margin so that the list view is flush with the edge.
@@ -85,7 +85,7 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 		// Return true to allow the item to be removed from the list by the user.
 		return false
 	}
-
+	
 	// MARK: Private
 	
 	private func fetchRepos(completionHandler: ((NCUpdateResult) -> Void)!) {

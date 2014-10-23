@@ -29,10 +29,10 @@ class RepoParser {
 				}
 			}
 		}
-
+		
 		return .None
 	}
-
+	
 	private class func formattedDateString(dateString: String) -> String {
 		let date = ISO8601DateParser.sharedInstance.parse(dateString)
 		return DateFormatter.sharedInstance.format(date)

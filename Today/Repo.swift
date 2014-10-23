@@ -22,7 +22,7 @@ class Repo: NSObject, NSCoding {
 	var duration: Int?
 	var status: BuildStatus?
 	var finishedAt: String?
-
+	
 	init(slug: String, buildNumber: String, duration: Int, status: String, finishedAt: String) {
 		super.init()
 		self.slug = slug
@@ -31,21 +31,21 @@ class Repo: NSObject, NSCoding {
 		self.status = BuildStatus.fromString(status)
 		self.finishedAt = finishedAt
 	}
-
+	
 	//MARK: NSCoding
 	required init(coder: NSCoder) {
 		let statusString = coder.decodeObjectForKey(RepoCoding.Status) as? String
-
+		
 		slug = coder.decodeObjectForKey(RepoCoding.Slug) as? String
 		buildNumber = coder.decodeObjectForKey(RepoCoding.BuildNumber) as? String
 		duration = coder.decodeObjectForKey(RepoCoding.Duration) as? Int
 		status = BuildStatus.fromString(statusString!)
 		finishedAt = coder.decodeObjectForKey(RepoCoding.FinishedAt) as? String
 	}
-
+	
 	func encodeWithCoder(coder: NSCoder) {
 		let statusString = status?.stringValue
-
+		
 		coder.encodeObject(slug, forKey: RepoCoding.Slug)
 		coder.encodeObject(buildNumber, forKey: RepoCoding.BuildNumber)
 		coder.encodeObject(duration, forKey: RepoCoding.Duration)

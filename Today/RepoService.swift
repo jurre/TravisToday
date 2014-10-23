@@ -10,7 +10,7 @@ import Foundation
 
 class BaseService {
 	let accept = "application/vnd.travis-ci.2+json"
-
+	
 	func request(url: NSURL) -> NSMutableURLRequest {
 		let request = NSMutableURLRequest(URL: url)
 		request.setValue(accept, forHTTPHeaderField: "Accept")
@@ -19,7 +19,7 @@ class BaseService {
 }
 
 class RepoService: BaseService {
-
+	
 	class var sharedService: RepoService {
 		struct Static {
 			static var onceToken : dispatch_once_t = 0
