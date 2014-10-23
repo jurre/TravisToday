@@ -8,7 +8,6 @@
 
 import Cocoa
 import NotificationCenter
-import TravisKit
 
 extension Repo {
 	var durationLabel: String {

@@ -8,14 +8,6 @@
 
 import Foundation
 
-struct RepoCoding {
-	static let Slug = "Slug"
-	static let BuildNumber = "BuildNumber"
-	static let Duration = "Duration"
-	static let Status = "Status"
-	static let FinishedAt = "FinishedAt"
-}
-
 class Repo: NSObject, NSCoding {
 	var slug: String?
 	var buildNumber: String?
@@ -34,22 +26,30 @@ class Repo: NSObject, NSCoding {
 	
 	//MARK: NSCoding
 	required init(coder: NSCoder) {
-		let statusString = coder.decodeObjectForKey(RepoCoding.Status) as? String
+		let statusString = coder.decodeObjectForKey(Encoding.Status) as? String
 		
-		slug = coder.decodeObjectForKey(RepoCoding.Slug) as? String
-		buildNumber = coder.decodeObjectForKey(RepoCoding.BuildNumber) as? String
-		duration = coder.decodeObjectForKey(RepoCoding.Duration) as? Int
+		slug = coder.decodeObjectForKey(Encoding.Slug) as? String
+		buildNumber = coder.decodeObjectForKey(Encoding.BuildNumber) as? String
+		duration = coder.decodeObjectForKey(Encoding.Duration) as? Int
 		status = BuildStatus.fromString(statusString!)
-		finishedAt = coder.decodeObjectForKey(RepoCoding.FinishedAt) as? String
+		finishedAt = coder.decodeObjectForKey(Encoding.FinishedAt) as? String
 	}
 	
 	func encodeWithCoder(coder: NSCoder) {
 		let statusString = status?.stringValue
 		
-		coder.encodeObject(slug, forKey: RepoCoding.Slug)
-		coder.encodeObject(buildNumber, forKey: RepoCoding.BuildNumber)
-		coder.encodeObject(duration, forKey: RepoCoding.Duration)
-		coder.encodeObject(statusString, forKey: RepoCoding.Status)
-		coder.encodeObject(finishedAt, forKey: RepoCoding.FinishedAt)
+		coder.encodeObject(slug, forKey: Encoding.Slug)
+		coder.encodeObject(buildNumber, forKey: Encoding.BuildNumber)
+		coder.encodeObject(duration, forKey: Encoding.Duration)
+		coder.encodeObject(statusString, forKey: Encoding.Status)
+		coder.encodeObject(finishedAt, forKey: Encoding.FinishedAt)
+	}
+
+	private struct Encoding {
+		static let Slug = "Slug"
+		static let BuildNumber = "BuildNumber"
+		static let Duration = "Duration"
+		static let Status = "Status"
+		static let FinishedAt = "FinishedAt"
 	}
 }
