@@ -1,5 +1,5 @@
 # Travis Today
-Travis Today is an OSX Yosemite Today widget that displays build statuse for [travis-ci](https://travis-ci.
+Travis Today is an OSX Yosemite Today widget that displays build statuse for [travis-ci](https://travis-ci.com).
 
 To use it right now you can:
 - Clone this repository
