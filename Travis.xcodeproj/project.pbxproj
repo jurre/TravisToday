@@ -28,6 +28,8 @@
 		07AC0D0919F84A760064F949 /* ISO8601DateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0819F84A760064F949 /* ISO8601DateParser.swift */; };
 		07AC0D0C19F84B200064F949 /* RepoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0B19F84B200064F949 /* RepoParser.swift */; };
 		07AC0D0F19F859AA0064F949 /* RepoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0E19F859AA0064F949 /* RepoCache.swift */; };
+		07AC0D1119F888500064F949 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D1019F888500064F949 /* TokenService.swift */; };
+		07AC0D1319F88F960064F949 /* RepoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D1219F88F960064F949 /* RepoConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		07AC0D0819F84A760064F949 /* ISO8601DateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISO8601DateParser.swift; sourceTree = "<group>"; };
 		07AC0D0B19F84B200064F949 /* RepoParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoParser.swift; sourceTree = "<group>"; };
 		07AC0D0E19F859AA0064F949 /* RepoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCache.swift; sourceTree = "<group>"; };
+		07AC0D1019F888500064F949 /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		07AC0D1219F88F960064F949 /* RepoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 				0715A94419F58AA700B5D318 /* ListRowViewController.xib */,
 				0715A94319F58AA700B5D318 /* TravisViewController.xib */,
 				0715A92B19F58A8400B5D318 /* Supporting Files */,
+				07AC0D1219F88F960064F949 /* RepoConfig.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			children = (
 				0724C1AF19F7134D00A0C3D1 /* RepoService.swift */,
 				07AC0D0B19F84B200064F949 /* RepoParser.swift */,
+				07AC0D1019F888500064F949 /* TokenService.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -420,7 +426,9 @@
 				0715A94819F58AA700B5D318 /* StatusIcon.swift in Sources */,
 				0715A94619F58AA700B5D318 /* TravisViewController.swift in Sources */,
 				0715A94919F58AA700B5D318 /* Repo.swift in Sources */,
+				07AC0D1119F888500064F949 /* TokenService.swift in Sources */,
 				07AC0D0519F846B20064F949 /* Config.swift in Sources */,
+				07AC0D1319F88F960064F949 /* RepoConfig.swift in Sources */,
 				07AC0D0C19F84B200064F949 /* RepoParser.swift in Sources */,
 				0715A94719F58AA700B5D318 /* ListRowViewController.swift in Sources */,
 				0715A94A19F58AA700B5D318 /* BuildStatus.swift in Sources */,

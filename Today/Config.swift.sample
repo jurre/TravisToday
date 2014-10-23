@@ -8,13 +8,11 @@
 
 import Foundation
 
-let PUBLIC_REPOS = [
-	"DefactoSoftware/Hours",
-	"travis-ci/travis-core",
-	"rails/rails"
+let REPOS = [
+	RepoConfig(slug: "jurre/dotfiles", access: .Private),
+	RepoConfig(slug: "DefactoSoftware/Hours", access: .Public),
+	RepoConfig(slug: "supermarin/Alcatraz", access: .Public),
 ]
-
-let PRIVATE_REPOS = []
 
 let GITHUB_TOKEN = "YOUR GITHUB TOKEN"
 

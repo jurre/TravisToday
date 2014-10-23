@@ -36,35 +36,21 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 		super.viewDidLoad()
 
 		// Set up the widget list view controller.
-		// The contents property should contain an object for each row in the list.
-		for slug in PUBLIC_REPOS {
-			if let repo = RepoCache().get(slug) {
-				self.repos.addObject(repo)
+		for repo in REPOS {
+			if let cachedRepo = RepoCache().get(repo.slug) {
+				self.repos.addObject(cachedRepo)
 			}
-			self.listViewController.contents = self.repos
 		}
+		self.listViewController.contents = self.repos
 	}
 	
 	
 	// MARK: - NCWidgetProviding
 	
 	func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
-		self.repos.removeAllObjects()
-		for slug in PUBLIC_REPOS {
-			RepoService.sharedService.find(slug, completion: { (success: Bool, repo: Repo?) -> Void in
-				if (success) {
-					RepoCache().set(repo!, forKey: slug)
-					dispatch_async(dispatch_get_main_queue(), { () -> Void in
-						self.repos.addObject(repo!)
-						completionHandler(.NewData)
-					})
-				} else {
-					println("Error fetching " + slug)
-						completionHandler(.NoData)
-				}
-			})
-		}
+		fetchRepos(completionHandler)
 	}
+
 	
 	func widgetMarginInsetsForProposedMarginInsets(var defaultMarginInset: NSEdgeInsets) -> NSEdgeInsets {
 		// Override the left margin so that the list view is flush with the edge.
@@ -98,5 +84,26 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 	func widgetList(list: NCWidgetListViewController!, shouldRemoveRow row: Int) -> Bool {
 		// Return true to allow the item to be removed from the list by the user.
 		return false
+	}
+
+	// MARK: Private
+	
+	private func fetchRepos(completionHandler: ((NCUpdateResult) -> Void)!) {
+		self.repos.removeAllObjects()
+		for config in REPOS {
+			RepoService.sharedService.find(config, completion: { (success: Bool, repo: Repo?) -> Void in
+				if (success) {
+					RepoCache().set(repo!, forKey: config.slug)
+					dispatch_async(dispatch_get_main_queue(), { () -> Void in
+						self.repos.addObject(repo!)
+						self.listViewController.contents = self.repos
+						completionHandler(.NewData)
+					})
+				} else {
+					println("Error fetching " + config.slug)
+					completionHandler(.NoData)
+				}
+			})
+		}
 	}
 }

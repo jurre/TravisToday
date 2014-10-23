@@ -8,9 +8,18 @@
 
 import Foundation
 
+class BaseService {
+	let accept = "application/vnd.travis-ci.2+json"
 
+	func request(url: NSURL) -> NSMutableURLRequest {
+		let request = NSMutableURLRequest(URL: url)
+		request.setValue(accept, forHTTPHeaderField: "Accept")
+		return request
+	}
+}
 
-class RepoService {
+class RepoService: BaseService {
+
 	class var sharedService: RepoService {
 		struct Static {
 			static var onceToken : dispatch_once_t = 0
@@ -22,23 +31,37 @@ class RepoService {
 		return Static.instance!
 	}
 	
-	func find(slug: String, completion: (Bool, Repo?) -> Void) {
-		let accept = "application/vnd.travis-ci.2+json"
-		let url = NSURL(string: "https://api.travis-ci.org/repos/" + slug)
-		let request = NSMutableURLRequest(URL: url!)
-		request.setValue(accept, forHTTPHeaderField: "Accept")
-		let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, request, error) -> Void in
-			if (error != nil) {
-				println(error.localizedDescription)
-				completion(false, .None)
-			} else {
-				if let repo = RepoParser.fromJSONData(data) {
-					completion(true, repo)
+	func find(repo: RepoConfig, completion: (Bool, Repo?) -> Void) {
+		let request = self.request(repo.url)
+		
+		let fetchRepo = {() -> Void in
+			let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, request, error) -> Void in
+				if (error != nil) {
+					println(error.localizedDescription)
+					completion(false, .None)
 				} else {
+					if let repo = RepoParser.fromJSONData(data) {
+						completion(true, repo)
+					} else {
+						completion(false, .None)
+					}
+				}
+			})
+			task.resume()
+		}
+		
+		if (repo.access == .Private) {
+			TokenService().fetchToken({ (success, token) -> Void in
+				if (success) {
+					request.setValue(token!, forHTTPHeaderField: "Authorization")
+					fetchRepo()
+				} else {
+					println("Error fetching token")
 					completion(false, .None)
 				}
-			}
-		})
-		task.resume()
+			})
+		} else {
+			fetchRepo()
+		}
 	}
 }
