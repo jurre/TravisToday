@@ -18,6 +18,7 @@ Eventually you should be able to configure everything in the host app.
 - Some sort of polling/hooking into Travis' Pusher service
 - Notifications when builds fail
 - A nice UI to configure your repos/keys
+- More idiomatic swift
 - Tests (the irony!)
 
 ## Contact
