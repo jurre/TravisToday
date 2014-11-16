@@ -36,7 +36,7 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 		
 		// Set up the widget list view controller.
 		for repo in REPOS {
-			if let cachedRepo = RepoCache().get(repo.slug) {
+			if let cachedRepo = RepoCache().get(repo.slug!) {
 				self.repos.addObject(cachedRepo)
 			}
 		}
@@ -92,14 +92,14 @@ class TravisViewController: NSViewController, NCWidgetProviding, NCWidgetListVie
 		for config in REPOS {
 			RepoService.sharedService.find(config, completion: { (success: Bool, repo: Repo?) -> Void in
 				if (success) {
-					RepoCache().set(repo!, forKey: config.slug)
+					RepoCache().set(repo!, forKey: config.slug!)
 					dispatch_async(dispatch_get_main_queue(), { () -> Void in
 						self.repos.addObject(repo!)
 						self.listViewController.contents = self.repos
 						completionHandler(.NewData)
 					})
 				} else {
-					println("Error fetching " + config.slug)
+					println("Error fetching " + config.slug!)
 					completionHandler(.NoData)
 				}
 			})

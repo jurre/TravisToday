@@ -9,11 +9,24 @@
 import Foundation
 
 class Repo: NSObject, NSCoding {
+
+	enum Access {
+		case Public
+		case Private
+	}
+
 	var slug: String?
 	var buildNumber: String?
 	var duration: Int?
 	var status: BuildStatus?
 	var finishedAt: String?
+	var access: Access?
+
+	init(slug: String, access: Access) {
+		super.init()
+		self.slug = slug
+		self.access = access
+	}
 	
 	init(slug: String, buildNumber: String, duration: Int, status: String, finishedAt: String) {
 		super.init()
@@ -24,7 +37,8 @@ class Repo: NSObject, NSCoding {
 		self.finishedAt = finishedAt
 	}
 	
-	//MARK: NSCoding
+	// MARK: NSCoding
+
 	required init(coder: NSCoder) {
 		let statusString = coder.decodeObjectForKey(Encoding.Status) as? String
 		
@@ -43,6 +57,22 @@ class Repo: NSObject, NSCoding {
 		coder.encodeObject(duration, forKey: Encoding.Duration)
 		coder.encodeObject(statusString, forKey: Encoding.Status)
 		coder.encodeObject(finishedAt, forKey: Encoding.FinishedAt)
+	}
+
+	var url: NSURL {
+		return NSURL(string: baseUrl + slug!)!
+
+	}
+
+	// MARK: Private
+
+	private var baseUrl: String {
+		switch access! {
+		case .Public:
+			return "https://api.travis-ci.org/repos/"
+		case .Private:
+			return "https://api.travis-ci.com/repos/"
+		}
 	}
 
 	private struct Encoding {

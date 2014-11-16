@@ -9,13 +9,13 @@
 import Foundation
 
 struct RepoConfig {
-	enum AccessModifier {
+	enum Access {
 		case Public
 		case Private
 	}
 
 	let slug: String
-	let access: AccessModifier
+	let access: Access
 
 	private var baseUrl: String {
 		switch access {

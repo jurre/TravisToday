@@ -8,16 +8,6 @@
 
 import Foundation
 
-class BaseService {
-	let accept = "application/vnd.travis-ci.2+json"
-	
-	func request(url: NSURL) -> NSMutableURLRequest {
-		let request = NSMutableURLRequest(URL: url)
-		request.setValue(accept, forHTTPHeaderField: "Accept")
-		return request
-	}
-}
-
 class RepoService: BaseService {
 	
 	class var sharedService: RepoService {
@@ -31,7 +21,7 @@ class RepoService: BaseService {
 		return Static.instance!
 	}
 	
-	func find(repo: RepoConfig, completion: (Bool, Repo?) -> Void) {
+	func find(repo: Repo, completion: (Bool, Repo?) -> Void) {
 		let request = self.request(repo.url)
 		
 		let fetchRepo = {() -> Void in

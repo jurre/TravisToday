@@ -30,6 +30,7 @@
 		07AC0D0F19F859AA0064F949 /* RepoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D0E19F859AA0064F949 /* RepoCache.swift */; };
 		07AC0D1119F888500064F949 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D1019F888500064F949 /* TokenService.swift */; };
 		07AC0D1319F88F960064F949 /* RepoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AC0D1219F88F960064F949 /* RepoConfig.swift */; };
+		07C1CC941A18EC95004D516D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1CC931A18EC95004D516D /* BaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		07AC0D0E19F859AA0064F949 /* RepoCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCache.swift; sourceTree = "<group>"; };
 		07AC0D1019F888500064F949 /* TokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		07AC0D1219F88F960064F949 /* RepoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoConfig.swift; sourceTree = "<group>"; };
+		07C1CC931A18EC95004D516D /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				0724C1AF19F7134D00A0C3D1 /* RepoService.swift */,
 				07AC0D0B19F84B200064F949 /* RepoParser.swift */,
 				07AC0D1019F888500064F949 /* TokenService.swift */,
+				07C1CC931A18EC95004D516D /* BaseService.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				0715A94619F58AA700B5D318 /* TravisViewController.swift in Sources */,
 				0715A94919F58AA700B5D318 /* Repo.swift in Sources */,
 				07AC0D1119F888500064F949 /* TokenService.swift in Sources */,
+				07C1CC941A18EC95004D516D /* BaseService.swift in Sources */,
 				07AC0D0519F846B20064F949 /* Config.swift in Sources */,
 				07AC0D1319F88F960064F949 /* RepoConfig.swift in Sources */,
 				07AC0D0C19F84B200064F949 /* RepoParser.swift in Sources */,
