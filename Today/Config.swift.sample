@@ -9,9 +9,9 @@
 import Foundation
 
 let REPOS = [
-	RepoConfig(slug: "jurre/dotfiles", access: .Private),
-	RepoConfig(slug: "DefactoSoftware/Hours", access: .Public),
-	RepoConfig(slug: "supermarin/Alcatraz", access: .Public),
+	Repo(slug: "jurre/dotfiles", access: .Private),
+	Repo(slug: "DefactoSoftware/Hours", access: .Public),
+	Repo(slug: "supermarin/Alcatraz", access: .Public),
 ]
 
 let GITHUB_TOKEN = "YOUR GITHUB TOKEN"
