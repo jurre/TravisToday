@@ -11,7 +11,7 @@ Check out Today/Config.swift.sample to get an idea.
 
 Eventually you should be able to configure everything in the host app.
 
-<img src="http://i.imgur.com/jH7lvFo.png?1" alt="TravisToday" width=300/>
+<img src="http://i.imgur.com/uRVJSKM.png" alt="TravisToday" width=300/>
 
 ### TODO
 - Use keychain to store travis access token (right now it's in NSUserDefaults which isn't safe)
