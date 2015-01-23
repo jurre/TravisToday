@@ -27,7 +27,7 @@ class Repo: NSObject, NSCoding {
 		self.slug = slug
 		self.access = access
 	}
-	
+
 	init(slug: String, buildNumber: String, duration: Int, status: String, finishedAt: String) {
 		super.init()
 		self.slug = slug
@@ -36,7 +36,7 @@ class Repo: NSObject, NSCoding {
 		self.status = BuildStatus.fromString(status)
 		self.finishedAt = finishedAt
 	}
-	
+
 	// MARK: NSCoding
 
 	required init(coder: NSCoder) {
@@ -48,7 +48,7 @@ class Repo: NSObject, NSCoding {
 		status = BuildStatus.fromString(statusString!)
 		finishedAt = coder.decodeObjectForKey(Encoding.FinishedAt) as? String
 	}
-	
+
 	func encodeWithCoder(coder: NSCoder) {
 		let statusString = status?.stringValue
 		
@@ -61,7 +61,10 @@ class Repo: NSObject, NSCoding {
 
 	var url: NSURL {
 		return NSURL(string: baseUrl + slug!)!
+	}
 
+	var lastBuildURL: NSURL {
+		return self.webBaseURL.URLByAppendingPathComponent(slug!)
 	}
 
 	// MARK: Private
@@ -72,6 +75,15 @@ class Repo: NSObject, NSCoding {
 			return "https://api.travis-ci.org/repos/"
 		case .Private:
 			return "https://api.travis-ci.com/repos/"
+		}
+	}
+
+	private var webBaseURL: NSURL {
+		switch access! {
+		case .Public:
+			return NSURL(string: "https://travis-ci.org/")!
+		case .Private:
+			return NSURL(string: "https://magnum.travis-ci.com/")!
 		}
 	}
 

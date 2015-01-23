@@ -27,4 +27,10 @@ class ListRowViewController: NSViewController {
 			statusIcon.status = status
 		}
 	}
+
+	@IBAction func repoButtonClicked(sender: AnyObject) {
+		if let r = repo {
+			NSWorkspace.sharedWorkspace().openURL(r.lastBuildURL)
+		}
+	}
 }

@@ -30,8 +30,9 @@ class RepoService: BaseService {
 					println(error.localizedDescription)
 					completion(false, .None)
 				} else {
-					if let repo = RepoParser.fromJSONData(data) {
-						completion(true, repo)
+					if let parsedRepo = RepoParser.fromJSONData(data) {
+						parsedRepo.access = repo.access
+						completion(true, parsedRepo)
 					} else {
 						completion(false, .None)
 					}
